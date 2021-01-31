@@ -1,6 +1,5 @@
 package com.rest.serviceapi.dto;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,14 +15,6 @@ public class AddressDTO {
 
     public AddressDTO() { }
 
-    public AddressDTO(Long id, String doorNo, String city, String street, String state, String postalCode) {
-        this.id=id;
-        this.doorNo = doorNo;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
-    }
     @JsonIgnore
     public Long getaddressId() {
         return this.id;

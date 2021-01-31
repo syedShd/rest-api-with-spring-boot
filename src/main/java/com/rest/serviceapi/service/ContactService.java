@@ -1,6 +1,5 @@
 package com.rest.serviceapi.service;
 
-import com.rest.serviceapi.dao.model.Address;
 import com.rest.serviceapi.dao.model.EmpContact;
 import com.rest.serviceapi.dao.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ public class ContactService implements IContact {
     ContactRepository contactRepository;
   //  private static final ContactService INSTANCE = new ContactService();
 
-/*
+    /*
     static {
         Address address1 = new Address("8-3-169/452", "Hyderabad", "HF Nagar", "TS", "500045");
         Address address2 = new Address("78-4-563/4", "Hyderabad", "Padmavati Nagar", "TS", "500018");
