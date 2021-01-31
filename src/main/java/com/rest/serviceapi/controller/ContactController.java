@@ -27,8 +27,7 @@ public class ContactController {
     @GetMapping("/contact-list")
    /* MappingJacksonValue */ public List<EmpContactDTO> getContactList() {
 
-        List<EmpContactDTO> contacts = new ArrayList<>(contactConvertService.findAllEmpContacts());
-        return contacts;
+        return new ArrayList<>(contactConvertService.findAllEmpContacts());
         // To Dynamically Ignore Properties -- method return type should be MappingJacksonValue
 
        /* SimpleBeanPropertyFilter simpleBeanPropertyFilter =
