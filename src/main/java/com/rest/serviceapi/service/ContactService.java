@@ -64,7 +64,7 @@ public class ContactService implements IContact {
                 detail = contact;
             }
         }*/
-        return contactRepository.findById(id).get();
+        return contactRepository.findById(id).orElse(null);
     }
 
     @Override
