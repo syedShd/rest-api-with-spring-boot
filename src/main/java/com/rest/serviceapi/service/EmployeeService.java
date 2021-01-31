@@ -125,7 +125,7 @@ return employeeDetails;
                 employee = emp;
             }
         }*/
-        return employeeRepository.findById(id).get();
+        return employeeRepository.findById(id).orElse(null);
     }
 
 
