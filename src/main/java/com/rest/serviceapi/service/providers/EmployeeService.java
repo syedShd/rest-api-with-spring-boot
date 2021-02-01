@@ -1,6 +1,7 @@
-package com.rest.serviceapi.service;
+package com.rest.serviceapi.service.providers;
 
 import com.rest.serviceapi.dao.model.Employee;
+import com.rest.serviceapi.dao.operations.IEmployee;
 import com.rest.serviceapi.dao.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

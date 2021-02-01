@@ -1,12 +1,12 @@
-package com.rest.serviceapi.service;
+package com.rest.serviceapi.service.converters;
 
 import com.rest.serviceapi.dao.model.Employee;
-import com.rest.serviceapi.dto.EmpDTO;
-import com.rest.serviceapi.dto.IEmpDTO;
+import com.rest.serviceapi.dto.beanpojo.EmpDTO;
+import com.rest.serviceapi.dto.operations.IEmpDTO;
+import com.rest.serviceapi.service.providers.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +32,7 @@ public class EmpConvertService implements IEmpDTO {
     }
 
     @Override
-    public EmpDTO findEmpByIds(int id) {
+    public EmpDTO findEmpById(int id) {
 
         return  convertToEmpDTO(employeeService.getEmpByIds(id));
     }
@@ -41,8 +41,6 @@ public class EmpConvertService implements IEmpDTO {
 
     @Override
     public List<EmpDTO> findAllEmployees() {
-        List<EmpDTO> empDTO = new ArrayList<>();
-
         return  listToEmpDTO(employeeService.getAllEmployees());
     }
 

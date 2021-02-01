@@ -1,7 +1,6 @@
-package com.rest.serviceapi.service;
+package com.rest.serviceapi.dao.operations;
 
 import com.rest.serviceapi.dao.model.EmpContact;
-import com.rest.serviceapi.dto.EmpContactDTO;
 
 import java.util.List;
 

@@ -1,11 +1,12 @@
-package com.rest.serviceapi.service;
+package com.rest.serviceapi.service.converters;
 
 import com.rest.serviceapi.dao.model.Address;
 import com.rest.serviceapi.dao.model.EmpContact;
 import com.rest.serviceapi.dao.repository.AddressRepository;
-import com.rest.serviceapi.dto.AddressDTO;
-import com.rest.serviceapi.dto.EmpContactDTO;
-import com.rest.serviceapi.dto.IEmpContactDTO;
+import com.rest.serviceapi.dto.beanpojo.AddressDTO;
+import com.rest.serviceapi.dto.beanpojo.EmpContactDTO;
+import com.rest.serviceapi.dto.operations.IEmpContactDTO;
+import com.rest.serviceapi.service.providers.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,8 @@ public class ContactConvertService implements IEmpContactDTO {
     private  AddressRepository addressRepository;
 
     @Override
-    public EmpContactDTO addEmpContact(EmpContactDTO employee) {
-        return convertToEmpContactDTO(contactService.addEmpContact(convertToEmpContact(employee)));
+    public void addEmpContact(EmpContactDTO employee) {
+        convertToEmpContactDTO(contactService.addEmpContact(convertToEmpContact(employee)));
     }
 
 
@@ -31,8 +32,8 @@ public class ContactConvertService implements IEmpContactDTO {
     }
 
     @Override
-    public EmpContactDTO removeEmpContact(int id) {
-        return convertToEmpContactDTO(contactService.removeEmpContact(id));
+    public void removeEmpContact(int id) {
+        convertToEmpContactDTO(contactService.removeEmpContact(id));
     }
 
     @Override

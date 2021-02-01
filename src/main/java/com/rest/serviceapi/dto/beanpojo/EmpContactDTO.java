@@ -1,6 +1,4 @@
-package com.rest.serviceapi.dto;
-
-import com.fasterxml.jackson.annotation.JsonFilter;
+package com.rest.serviceapi.dto.beanpojo;
 
 
 public class EmpContactDTO {
@@ -11,15 +9,6 @@ public class EmpContactDTO {
     private AddressDTO address;
     private String email;
     private String mobile;
-
-    public EmpContactDTO(int id, String firstName, String lastName, AddressDTO address, String email, String mobile) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.email = email;
-        this.mobile = mobile;
-    }
 
     public EmpContactDTO() {
     }

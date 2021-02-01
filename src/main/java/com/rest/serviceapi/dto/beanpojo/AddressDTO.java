@@ -1,4 +1,4 @@
-package com.rest.serviceapi.dto;
+package com.rest.serviceapi.dto.beanpojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

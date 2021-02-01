@@ -1,7 +1,7 @@
 package com.rest.serviceapi.controller;
 
-import com.rest.serviceapi.dto.EmpContactDTO;
-import com.rest.serviceapi.service.ContactConvertService;
+import com.rest.serviceapi.dto.beanpojo.EmpContactDTO;
+import com.rest.serviceapi.service.converters.ContactConvertService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;

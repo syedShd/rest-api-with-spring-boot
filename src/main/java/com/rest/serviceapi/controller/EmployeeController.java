@@ -1,6 +1,6 @@
 package com.rest.serviceapi.controller;
-import com.rest.serviceapi.dto.EmpDTO;
-import com.rest.serviceapi.service.EmpConvertService;
+import com.rest.serviceapi.dto.beanpojo.EmpDTO;
+import com.rest.serviceapi.service.converters.EmpConvertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class EmployeeController {
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/employee-list/{id}")
     public ResponseEntity<EmpDTO> getEmployeeById(@PathVariable(value = "id") int employeeId) {
-        EmpDTO employee = empConvertService.findEmpByIds(employeeId);
+        EmpDTO employee = empConvertService.findEmpById(employeeId);
         return ResponseEntity.ok().body(employee);
     }
 

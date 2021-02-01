@@ -1,6 +1,7 @@
-package com.rest.serviceapi.service;
+package com.rest.serviceapi.service.providers;
 
 import com.rest.serviceapi.dao.model.EmpContact;
+import com.rest.serviceapi.dao.operations.IContact;
 import com.rest.serviceapi.dao.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

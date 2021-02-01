@@ -1,4 +1,4 @@
-package com.rest.serviceapi.dto;
+package com.rest.serviceapi.dto.beanpojo;
 import java.util.ArrayList;
 import java.util.List;
 
