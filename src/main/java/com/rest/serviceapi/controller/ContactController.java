@@ -1,7 +1,10 @@
 package com.rest.serviceapi.controller;
 
+import com.rest.serviceapi.dao.model.SearchResponse;
 import com.rest.serviceapi.dto.beanpojo.EmpContactDTO;
 import com.rest.serviceapi.service.converters.ContactConvertService;
+import com.rest.serviceapi.service.providers.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
@@ -11,6 +14,8 @@ import java.util.List;
 public class ContactController {
   final
   ContactConvertService contactConvertService;
+    @Autowired
+    private ContactService contactService;
 
     public ContactController(ContactConvertService contactConvertService) {
         this.contactConvertService = contactConvertService;
@@ -64,4 +69,33 @@ public class ContactController {
 
     }
 
+    // Search by Email
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/search/{email}")
+    public ResponseEntity<EmpContactDTO> getByEmail(@PathVariable(value = "email") String employeeEmail) {
+        EmpContactDTO Employee = contactConvertService.findEmpContactByEmail(employeeEmail);
+        return ResponseEntity.ok(Employee);
+
+    }
+
+    // Search by First Name having / containing / like
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/name-search/{fName}")
+   public List<EmpContactDTO> getAllContactsFirstNameLikeList(@PathVariable(value = "fName") String fName) {
+
+       return new ArrayList<>(contactConvertService.findEmpContactsByFirstNameLike(fName));
+
+    }
+
+    // Search by Postal Code having / containing / like
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/postal-search/{pCode}")
+    public List<SearchResponse> getAllContactsPostalCodeLikeList(@PathVariable(value = "pCode") String pCode) {
+
+        return new ArrayList<>(contactService.getByPostalCodeLike(pCode));
+
+    }
 }

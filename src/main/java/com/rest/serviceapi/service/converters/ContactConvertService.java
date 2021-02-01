@@ -42,10 +42,27 @@ public class ContactConvertService implements IEmpContactDTO {
     }
 
     @Override
+    public EmpContactDTO findEmpContactByEmail(String email) {
+        return convertToEmpContactDTO(contactService.getContactByEmail(email));
+    }
+
+    @Override
+    public List<EmpContactDTO> findEmpContactsByFirstNameLike(String fName) {
+        return listToEmpContactDTO(contactService.getAllContactsByFirstNameLike(fName));
+    }
+
+  /*  @Override
+    public List<EmpContactDTO> findEmpContactsByPostalCodeLike(String postalCode) {
+        return listToEmpContactDTO(contactService.getByPostalCodeLike(postalCode));
+    }
+*/
+    @Override
     public List<EmpContactDTO> findAllEmpContacts() {
         return listToEmpContactDTO(contactService.getAllContacts());
     }
 
+
+   // List DAO to DTO
     private List<EmpContactDTO> listToEmpContactDTO(List<EmpContact> allContacts) {
         return allContacts.stream().map(this::convertToEmpContactDTO).collect(Collectors.toList());
     }

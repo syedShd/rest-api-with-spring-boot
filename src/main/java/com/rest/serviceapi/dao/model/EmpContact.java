@@ -14,7 +14,8 @@ public class EmpContact {
     private int id;
     private String firstName;
     private String lastName;
-    @OneToOne
+    @OneToOne(targetEntity = Address.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="address_id",referencedColumnName = "id")
     private Address address;
     private String email;
     private String mobile;

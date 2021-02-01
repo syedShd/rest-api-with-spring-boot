@@ -10,4 +10,7 @@ public interface IEmpContactDTO {
     void removeEmpContact(int id);
     EmpContactDTO findEmpContactById(int id);
     List<EmpContactDTO> findAllEmpContacts();
+    EmpContactDTO findEmpContactByEmail(String email);
+    List<EmpContactDTO> findEmpContactsByFirstNameLike(String firstName);
+ //   List<EmpContactDTO> findEmpContactsByPostalCodeLike(String postalCode);
 }

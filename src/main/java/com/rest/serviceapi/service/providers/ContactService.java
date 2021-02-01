@@ -1,6 +1,7 @@
 package com.rest.serviceapi.service.providers;
 
 import com.rest.serviceapi.dao.model.EmpContact;
+import com.rest.serviceapi.dao.model.SearchResponse;
 import com.rest.serviceapi.dao.operations.IContact;
 import com.rest.serviceapi.dao.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +74,22 @@ public class ContactService implements IContact {
         contactRepository.findAll().forEach(contacts::add);
         return contacts;
     }
+
+    @Override
+    public EmpContact getContactByEmail(String email) {
+        return contactRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<EmpContact> getAllContactsByFirstNameLike(String firstName) {
+        return contactRepository.searchByFirstNameLike(firstName);
+    }
+
+    @Override
+    public List<SearchResponse> getByPostalCodeLike(String postalCode) {
+        return contactRepository.findByPostalCodeLike(postalCode);
+    }
+
    /* public static ContactService getInstance() {
         return INSTANCE;
     }*/
