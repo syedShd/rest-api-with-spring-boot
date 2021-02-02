@@ -6,11 +6,11 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-/*@Table(name = "t_emp_contact")*/
+@Table(name = "emp_contact")
 @Data
 public class EmpContact {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;

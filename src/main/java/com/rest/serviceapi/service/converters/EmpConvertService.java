@@ -27,8 +27,8 @@ public class EmpConvertService implements IEmpDTO {
     }
 
     @Override
-    public EmpDTO removeEmployee(int id) {
-        return convertToEmpDTO(employeeService.removeEmployee(id));
+    public void removeEmployee(int id) {
+        employeeService.removeEmployee(id);
     }
 
     @Override

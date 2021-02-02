@@ -8,7 +8,7 @@ import java.util.List;
 public interface IContact {
     EmpContact addEmpContact(EmpContact employee);
     EmpContact updateEmpContact(int id, EmpContact employee);
-    EmpContact removeEmpContact(int id);
+    void removeEmpContact(int id);
     EmpContact getContactById(int id);
     List<EmpContact> getAllContacts();
     EmpContact getContactByEmail(String email);

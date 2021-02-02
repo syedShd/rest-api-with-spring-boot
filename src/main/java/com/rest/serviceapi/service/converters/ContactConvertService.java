@@ -3,6 +3,7 @@ package com.rest.serviceapi.service.converters;
 import com.rest.serviceapi.dao.model.Address;
 import com.rest.serviceapi.dao.model.EmpContact;
 import com.rest.serviceapi.dao.repository.AddressRepository;
+import com.rest.serviceapi.dao.repository.ContactRepository;
 import com.rest.serviceapi.dto.beanpojo.AddressDTO;
 import com.rest.serviceapi.dto.beanpojo.EmpContactDTO;
 import com.rest.serviceapi.dto.operations.IEmpContactDTO;
@@ -19,6 +20,8 @@ public class ContactConvertService implements IEmpContactDTO {
     private ContactService contactService;
     @Autowired
     private  AddressRepository addressRepository;
+    @Autowired
+    ContactRepository contactRepository;
 
     @Override
     public void addEmpContact(EmpContactDTO employee) {
@@ -33,7 +36,7 @@ public class ContactConvertService implements IEmpContactDTO {
 
     @Override
     public void removeEmpContact(int id) {
-        convertToEmpContactDTO(contactService.removeEmpContact(id));
+        contactService.removeEmpContact(id);
     }
 
     @Override
@@ -75,6 +78,7 @@ public class ContactConvertService implements IEmpContactDTO {
         empContactDTO.setLastName(empContact.getLastName());
         empContactDTO.setEmail(empContact.getEmail());
         empContactDTO.setMobile(empContact.getMobile());
+
         empContactDTO.setAddress(convertToEmpAddressDTO(empContact.getAddress()));
         return  empContactDTO;
     }
@@ -88,7 +92,26 @@ public class ContactConvertService implements IEmpContactDTO {
         emp.setLastName(employee.getLastName());
         emp.setEmail(employee.getEmail());
         emp.setMobile(employee.getMobile());
-        emp.setAddress(convertToEmpAddress(employee.getAddress()));
+
+        if(contactRepository.findById(employee.getId()).isPresent()  ) {
+            EmpContact empContact = contactRepository.findById(employee.getId()).get();
+            if (addressRepository.findById(empContact.getAddress().getId()).isPresent())
+            {
+                Address address = addressRepository.findById(empContact.getAddress().getId()).get();
+                //   address.setId(empContact.getAddress().getId());
+                address.setDoorNo(employee.getAddress().getDoorNo());
+                address.setCity(employee.getAddress().getCity());
+                address.setStreet(employee.getAddress().getStreet());
+                address.setState(employee.getAddress().getState());
+                address.setPostalCode(employee.getAddress().getPostalCode());
+                Address savedAddress = addressRepository.save(address);
+                emp.setAddress(savedAddress);
+            }
+        }
+        else
+        {
+            emp.setAddress(convertToEmpAddress(employee.getAddress()));
+        }
         return emp;
     }
 

@@ -51,9 +51,9 @@ public class ContactService implements IContact {
     }
 
     @Override
-    public EmpContact removeEmpContact(int id) {
+    public void removeEmpContact(int id) {
         contactRepository.deleteById(id);
-        return null;
+
     }
 
     @Override
