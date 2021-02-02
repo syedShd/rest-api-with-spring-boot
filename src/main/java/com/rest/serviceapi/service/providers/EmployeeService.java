@@ -103,7 +103,7 @@ return employeeDetails;
     }
 
 
-    public Employee removeEmployee(int empId) {
+    public void removeEmployee(int empId) {
         employeeRepository.deleteById(empId);
       //  employees.removeIf((Employee a) -> a.getId() == empId);
       /*  Iterator<Employee> itr = employees.iterator();
@@ -113,7 +113,7 @@ return employeeDetails;
                 itr.remove();
             }
         }*/
-        return null;
+
     }
 
 

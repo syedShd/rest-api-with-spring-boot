@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "employee")
 public class Employee {
     public Employee() { }
 
