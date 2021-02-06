@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/contacts")
 public class ContactController {
   final
   ContactConvertService contactConvertService;

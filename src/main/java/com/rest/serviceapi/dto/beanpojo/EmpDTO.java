@@ -1,8 +1,13 @@
 package com.rest.serviceapi.dto.beanpojo;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
+@ToString
+@AllArgsConstructor
 public class EmpDTO {
 
     private int eId;
