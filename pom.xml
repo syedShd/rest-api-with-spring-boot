@@ -10,13 +10,22 @@
 	</parent>
 	<groupId>com.rest.api</groupId>
 	<artifactId>rest-service-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.4.1-SNAPSHOT</version>
 	<name>rest-service-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>This API provides the information of employees data along with their contact details.</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -49,8 +58,19 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
+		<!--  spring security !-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!--  spring  openapi 3 documentation !-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.2.32</version>
+		</dependency>
     </dependencies>
+
 
 	<build>
 		<plugins>
